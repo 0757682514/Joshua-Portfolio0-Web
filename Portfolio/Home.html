@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keen Josh portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+      :root {
+            --bg-color-light: #f4f4f9;
+            --bg-color-dark: #121212;
+            --text-color-light: #333;
+            --text-color-dark: #fff;
+            --link-color-light: #1a73e8;
+            --link-color-dark: #8ab4f8;
+        }
+
+        /* Default body style (light theme) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: #f2f2f4;
+        
+        }
+
+        /* Links styling */
+        a {
+            color: var(--link-color-light);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dark theme */
+        body.dark-theme {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        body.dark-theme a {
+            color: var(--link-color-dark);
+        }
+
+        /* Toggle button styling */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 0%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: var(--link-color-light);
+            color: var(--text-color-light);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-theme .theme-toggle {
+            background-color: var(--link-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        /* Navbar Styling */
+        nav {
+            background: linear-gradient(90deg, #333, #0779e4);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 15px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: gold;
+            color: #333;
+            border-radius: 5px;
+        }
+   
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 50px 0;
+            border-bottom: #0779e4 5px solid;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        #auto-type {
+            display: inline-block;
+            padding: 10px;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #333;
+            background: linear-gradient(90deg, #333, #0779e4);
+            border-bottom: 3px solid #0779e4;
+            width: fit-content;
+            text-decoration: underline;
+            border-radius: 40px;
+            color: #00A7FF;
+
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container h2 {
+            margin: 20px 0;
+            font-size: 2rem;
+        }
+
+        .container p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background: #2cb2f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background-color: #2c2f34;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .timeline-item {
+            margin: 20px 0;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            color: #0779e4;
+        }
+
+#img{
+    border-radius: 30px;
+
+}
+#img:hover{
+    transform: translateY(-10px);
+}
+#home {
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(to bottom, #067fd5, #e9edf0);
+            color: white;
+        }
+
+        #home h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 600px;
+        }
+
+        .slider img {
+            width: 100%;
+            flex-shrink: 0;
+            border-radius: 10px;
+        }
+
+        /* Navigation buttons */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 5px;
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        /* Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-indicators span {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-indicators .active {
+            background-color: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #0077cc;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background-color: #0077cc;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="#home" class="logo"><img src="/IMG/logo.png" alt="" width="100PX" style="border: #6707e4; border-radius: 20px;"> Keen Josh </a>
+      
+        <ul>
+            <li><a href="#theme" class="theme-toggle" id="themeToggle" style="color: red;"><i class="fas fa-adjust"></i>
+                Theme</a></li>
+            <li><a href="#home"><i class="fa fa-home" aria-hidden="true"></i>
+                Home</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i>
+                About</a></li>
+            <li><a href="#services"><i class="fas fa-laptop"></i>
+                Services</a></li>
+            <li><a href="#experience"><i class="fas fa-briefcase"></i>
+                Experience</a></li>
+            <li><a href="#contact"><i class="fas fa-phone"></i>
+                Contact</a></li>
+           
+        </ul>
+       
+
+
+        <script>
+            const themeToggle = document.getElementById('themeToggle');
+    
+            // Check for saved user preference in localStorage
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme) {
+                document.body.classList.toggle('dark-theme', currentTheme === 'dark');
+            }
+    
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                // Save the current theme in localStorage
+                const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+                localStorage.setItem('theme', theme);
+            });
+        </script>
+        <div class="hamburger">&#9776;</div>
+    </nav>
+    <header id="home">
+        <h1>Welcome to Joshua's Portfolio</h1>
+        <div class="slider-container">
+            <div class="slider" >
+                <img src="/IMG/IMG_20250115_104819.jpg" alt="Image 1">
+                <img src="/IMG/IMG_20250115_104819.jpg" alt="Image 2">
+                <img src="/IMG/IMG_20250115_104819.jpg" alt="Image 3">
+
+            </div>
+            <!-- Navigation buttons -->
+            <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <span onclick="goToSlide(0)" class="active"></span>
+            <span onclick="goToSlide(1)"></span>
+            <span onclick="goToSlide(2)"></span>
+            <span onclick="goToSlide(3)"></span>
+            <span onclick="goToSlide(4)"></span>
+        </div>
+        <a href="#about" class="cta-button">Explore My Work</a>
+    </header>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelector('.slider');
+        const totalSlides = slides.children.length;
+        const indicators = document.querySelectorAll('.carousel-indicators span');
+
+        function updateCarousel() {
+            // Move the slider
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            // Update active indicator
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Auto-slide functionality
+        setInterval(() => moveSlide(1), 5000); // Change slide every 5 seconds
+    </script>
+   
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div>
+<img id="img" src="/IMG/IMG_20250115_104819.jpg" alt="JOSH" width="400px">
+
+            </div>
+            
+            <p id="auto-type"></p>
+        </div>
+    </section>
+    
+     <section id="services">
+        <div class="container">
+            <h2>Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3 style="color: #6707e4;">Custom Web Development</h3>
+                    <p style="color: #0779e4;">I design and develop custom websites that are fast, responsive, and tailored to meet your business goals. From small business sites to complex applications, I've got you covered.</p>
+                </div>
+                <div class="service-card">
+                    <h3 style="color: #6707e4;">UI/UX Design</h3>
+                    <p style="color: #0779e4;">My focus is on crafting user experiences that are intuitive and delightful. I use modern design principles to create layouts that make a lasting impression.</p>
+                </div>
+                <div class="service-card">
+                    <h3 style="color: #6707e4;">E-commerce Solutions</h3>
+                    <p style="color: #0779e4;">Build scalable, secure, and feature-rich online stores. I integrate payment gateways, shopping carts, and everything you need to boost sales.</p>
+                </div>
+                <div class="service-card">
+                    <h3 style="color: #6707e4;">Performance Optimization</h3>
+                    <p style="color: #0779e4;">I help improve website performance by optimizing load times, ensuring high SEO rankings, and delivering a seamless experience for your audience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>2020 - Present</h3>
+                    <p><strong>Lead Frontend Developer</strong> at TechCorp</p>
+                    <p>At TechCorp, I lead a team of developers to build cutting-edge web applications using modern JavaScript frameworks. Successfully launched over 15 client projects that exceeded expectations.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2017 - 2020</h3>
+                    <p><strong>Freelance Web Developer</strong></p>
+                    <p>Worked with clients worldwide to create custom websites, optimize site performance, and implement SEO strategies. Delivered outstanding results that increased user engagement and revenue.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2015 - 2017</h3>
+                    <p><strong>Junior Web Designer</strong> at CreativeStudio</p>
+                    <p>Collaborated with designers and developers to create visually appealing and user-friendly web pages. Enhanced the user experience for various company projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+   
+    
+
+    <!-- Contact Section -->
+    <section id="contact">
+        
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form id="contact-form" action="#" method="">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+    
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+    
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required placeholder="Write your message here"></textarea>
+    
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <style>
+       
+        #contact {
+            padding: 50px 20px;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            text-align: center;
+        }
+    
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+    
+        #contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+        #contact-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+    
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #333;
+        }
+    
+        #contact-form button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+    
+        #contact-form button:hover {
+            background-color: #0056b3;
+        }
+    
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #contact-form {
+                gap: 10px;
+            }
+    
+            #contact-form input,
+            #contact-form textarea {
+                width: 100%;
+            }
+    
+            #contact-form button {
+                width: 100%;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            #contact-form h2 {
+                font-size: 1.8rem;
+            }
+    
+            #contact-form input,
+            #contact-form textarea {
+                font-size: 1rem;
+            }
+    
+            #contact-form button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    
+
+   
+    <footer>
+       
+        <div>
+             
+            <ul id="media"> <p>&copy; 2025 KEEN JOSH</p>   
+                <li><a href="https://www.instagram.com/joshuakeen56?igsh=MW40Zmd6Njk1dmR1MA=="><i class="fab fa-instagram"></i>
+                    IG</a></li>
+                <li><a href="https://www.facebook.com/share/1BRky4smZj/"><i class="fab fa-facebook"></i>
+                    FB</a></li>
+                <li><a href="https://www.tiktok.com/@tingoi12?_t=ZM-8t6wTyqLD1y&_r=1"><i class="fab fa-tiktok"></i>
+                    Tiktok</a></li>
+                <li><a href="https://youtube.com/@joshuakeen-s7g?si=Xq7S_RsoX0K32BY8    "><i class="fab fa-youtube"></i>
+                    Youtube</a></li>
+
+            </ul>
+            <style>
+            #media li{
+                    display: flex;
+                    float: right;
+                    padding: 100px;
+                    height: 0px;
+
+
+                }
+            </style>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Effect
+        const texts = ['I am KEEN JOSH, a Web Developer specializing in front-end. Passionate about JavaScript, design, and creative solutions.'];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+
+        function type() {
+            if (count === texts.length) {
+                count = 0; // Reset count when all texts have been displayed
+            }
+            currentText = texts[count]; // Get current text
+            letter = currentText.slice(0, index++); // Get the current letter
+
+            document.getElementById('auto-type').innerText = ' ' + letter;
+
+            if (letter.length === currentText.length) {
+                count++; // Move to the next text
+                index = 0; // Reset index for typing next text
+            }
+            setTimeout(type, 90); // Continue typing
+        }
+
+        type(); // Start the auto-typing
+
+        // Navbar Toggle for Mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
